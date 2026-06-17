@@ -1,1 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #afb3bd,
+    #7c3aed
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 950px;
+  min-height: 550px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+
+  display: flex;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.2);
+}
+
+.left-panel {
+  flex: 1;
+  background: linear-gradient(
+    135deg,
+    #9963c0,
+    #6d28d9
+  );
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 60px;
+}
+
+.left-panel h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.left-panel p {
+  font-size: 18px;
+  opacity: .9;
+}
+
+.right-panel {
+  flex: 1;
+  padding: 50px;
+}
+
+.right-panel h2 {
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.row .input-group {
+  flex: 1;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background: #1d4ed8;
+}
+
+.link-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.link-text a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media(max-width: 768px) {
+
+  .auth-card {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .left-panel {
+    display: none;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
