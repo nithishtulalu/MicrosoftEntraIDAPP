@@ -34,9 +34,9 @@ onSubmit() {
           response.token
         );
 
-        alert('Login Successful');
+        
 
-        // We'll redirect later
+         this.router.navigate(['/home']);
       },
 
       error: (error) => {
