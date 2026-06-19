@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
+
+import { apiRequest } from '../msal.config';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink],
   templateUrl: './login.html'
 })
 export class Login {
@@ -18,9 +19,7 @@ export class Login {
     await this.msalService.instance.initialize();
 
     this.msalService.loginRedirect({
-      scopes: [
-        'api://39bc896f-6302-486e-ba57-9e3237abc2b8/access_as_user'
-      ]
+      scopes: apiRequest.scopes
     });
   }
 }

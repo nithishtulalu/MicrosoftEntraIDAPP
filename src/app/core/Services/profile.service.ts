@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import{ HttpClient } from "@angular/common/http";
 
+import { environment } from '../../../enviroments/environments';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +13,7 @@ export class ProfileService {
   getProfile(token: string) {
 
     return this.http.get(
-      'https://localhost:7231/api/Profile',
+      environment.apiUrl,
       {
         headers: {
           Authorization: `Bearer ${token}`

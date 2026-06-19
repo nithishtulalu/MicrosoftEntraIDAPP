@@ -3,6 +3,8 @@ import { RouterOutlet, Router } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 import { inject } from '@angular/core';
 import { ProfileService } from './core/Services/profile.service';
+
+import { apiRequest } from './Features/Auth/msal.config';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -17,33 +19,26 @@ export class App {
   async ngOnInit() {
     await this.msalservice.instance.initialize();
     const response = await this.msalservice.instance.handleRedirectPromise();
-    if (response?.account) {
+    const account =
+      response?.account ??
+      this.msalservice.instance.getAllAccounts()[0] ??
+      null;
 
-      this.msalservice.instance.setActiveAccount(
-        response.account
-      );
+    if (account) {
+      this.msalservice.instance.setActiveAccount(account);
 
-      const tokenResponse =
-        await this.msalservice.instance.acquireTokenSilent({
-          scopes: [
-            'api://39bc896f-6302-486e-ba57-9e3237abc2b8/access_as_user'
-          ],
-          account: response.account
-        });
+      if (response?.account) {
+        const tokenResponse =
+          await this.msalservice.instance.acquireTokenSilent({
+            scopes: apiRequest.scopes,
+            account
+          });
 
-      console.log(
-        'Access Token',
-        tokenResponse.accessToken
-      );
+        console.log('Access Token', tokenResponse.accessToken);
 
-      localStorage.setItem(
-        'access_token',
-        tokenResponse.accessToken
-      );
+        localStorage.setItem('access_token', tokenResponse.accessToken);
 
-      this.profileService
-        .getProfile(tokenResponse.accessToken)
-        .subscribe({
+        this.profileService.getProfile(tokenResponse.accessToken).subscribe({
           next: (res) => {
             console.log('Profile', res);
           },
@@ -52,6 +47,7 @@ export class App {
             console.log(err);
           }
         });
+      }
 
       this.router.navigate(['/home']);
     }
