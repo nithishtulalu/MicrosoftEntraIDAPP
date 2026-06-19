@@ -1,50 +1,26 @@
-import { Component } from '@angular/core';
-import { RouterLink ,Router } from '@angular/router';
-import { AuthService } from '../../../core/Services/auth.service';
-import {  inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
+import { Component, inject } from '@angular/core';
+import { RouterLink, Router } from '@angular/router';
+import { MsalService } from '@azure/msal-angular';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink , FormsModule],
+  imports: [RouterLink],
   templateUrl: './login.html'
 })
 export class Login {
-injectedAuthService = inject(AuthService);
-router = inject(Router);
-loginData = {
-  email: '',
-  password: ''
-};
-onSubmit() {
 
-  console.log(this.loginData);
+  router = inject(Router);
+  msalService = inject(MsalService);
 
-  this.injectedAuthService.login(this.loginData)
-    .subscribe({
+  async loginWithMicrosoft() {
 
-      next: (response: any) => {
+    await this.msalService.instance.initialize();
 
-        console.log('Login Successful', response);
-
-        localStorage.setItem(
-          'token',
-          response.token
-        );
-
-        
-
-         this.router.navigate(['/home']);
-      },
-
-      error: (error) => {
-
-        console.error('Login Failed', error);
-
-        alert('Invalid Email or Password');
-      }
+    this.msalService.loginRedirect({
+      scopes: [
+        'api://39bc896f-6302-486e-ba57-9e3237abc2b8/access_as_user'
+      ]
     });
-}
+  }
 }

@@ -11,34 +11,20 @@
 
     <div class="right-panel">
 
-      <h2>Login</h2>
+      <h2>Microsoft Entra Login</h2>
 
-      <form (ngSubmit)="onSubmit()">
+      <p class="subtitle">
+        Sign in using your Microsoft organization account.
+      </p>
 
-        <div class="input-group">
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder="Enter your email" [(ngModel)]="loginData.email" name="email" required>
-        </div>
+      <button
+        type="button"
+        class="btn-login"
+        (click)="loginWithMicrosoft()">
 
-        <div class="input-group">
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password" [(ngModel)]="loginData.password" name="password" required>
-        </div>
+        Sign in with Microsoft
 
-        <button class="btn-login" type="submit">
-          Login
-        </button>
-
-        <p class="link-text">
-          Don't have an account?
-          <a routerLink="/signup">Sign Up</a>
-        </p>
-
-      </form>
+      </button>
 
     </div>
 
