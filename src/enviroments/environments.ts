@@ -1,9 +1,17 @@
 export const environment = {
-    apiUrl: 'https://localhost:7231/api/Profile',
-    redirectUri: 'http://localhost:4200',
-    tenantId: '2bd2631a-a949-4f9e-82de-12ca06e2fc17',
-    clientId: '7ed3ad5c-b5f4-4cb3-b7da-4e6405dc8659',
-    apiClientId: 'eea9a8ce-5877-4123-b231-982eceb5cb81',
-    apiScope: 'access_as_user',
-    authority: 'https://login.microsoftonline.com/2bd2631a-a949-4f9e-82de-12ca06e2fc17'
+
+  apiUrl: 'https://localhost:7231/api/Profile',
+
+  redirectUri: 'http://localhost:4200',
+
+  tenantId: '60e3a48c-63bc-439d-94d2-31f18ddcff5e',
+
+  clientId: 'e63d4ec6-02ca-4964-a4cf-cf7cea73b2d3',
+
+  apiClientId: '39bc896f-6302-486e-ba57-9e3237abc2b8',
+
+  apiScope: 'access_as_user',
+
+  authority:
+    'https://login.microsoftonline.com/60e3a48c-63bc-439d-94d2-31f18ddcff5e'
 };

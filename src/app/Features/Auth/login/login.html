@@ -4,27 +4,45 @@
 
     <div class="left-panel">
       <h1>Welcome Back</h1>
-      <p>
-        Sign in to access your account.
-      </p>
+      <p>Sign in to access your account.</p>
     </div>
 
     <div class="right-panel">
 
-      <h2>Microsoft Entra Login</h2>
+      <h2>Login</h2>
 
-      <p class="subtitle">
-        Sign in using your Microsoft organization account.
-      </p>
+      <div class="input-group">
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          [(ngModel)]="loginData.email">
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="Enter your password"
+          [(ngModel)]="loginData.password">
+      </div>
 
       <button
-        type="button"
+        class="btn-login"
+        (click)="login()">
+        Login
+      </button>
+
+      <button
         class="btn-login"
         (click)="loginWithMicrosoft()">
-
-        Sign in with Microsoft
-
+        Login with Qualminds
       </button>
+
+      <p class="link-text">
+        Don't have an account?
+        <a routerLink="/signup">Sign Up</a>
+      </p>
 
     </div>
 

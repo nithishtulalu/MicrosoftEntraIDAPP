@@ -1,0 +1,68 @@
+<div class="auth-container">
+
+  <div class="auth-card">
+
+    <div class="left-panel">
+      <h1>Join Us</h1>
+      <p>Create your account and get started.</p>
+    </div>
+
+    <div class="right-panel">
+
+      <h2>Create Account</h2>
+
+      <div class="row">
+
+        <div class="input-group">
+          <label>First Name</label>
+          <input
+            type="text"
+            [(ngModel)]="registerData.firstName">
+        </div>
+
+        <div class="input-group">
+          <label>Last Name</label>
+          <input
+            type="text"
+            [(ngModel)]="registerData.lastName">
+        </div>
+
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input
+          type="email"
+          [(ngModel)]="registerData.email">
+      </div>
+
+      <div class="input-group">
+        <label>Phone</label>
+        <input
+          type="text"
+          [(ngModel)]="registerData.phoneNumber">
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          [(ngModel)]="registerData.password">
+      </div>
+
+      <button
+        class="btn-login"
+        (click)="register()">
+        Sign Up
+      </button>
+
+      <p class="link-text">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
