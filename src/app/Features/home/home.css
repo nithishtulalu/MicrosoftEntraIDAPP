@@ -1,0 +1,38 @@
+.home-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:linear-gradient(
+        135deg,
+        #afb3bd,
+        #7c3aed
+    );
+}
+
+.main-layout{
+
+    flex:1;
+
+    display:flex;
+}
+
+.home-body{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    color:white;
+}
